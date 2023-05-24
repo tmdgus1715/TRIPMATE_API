@@ -1,6 +1,7 @@
 package com.tripmate.TRIPMATE_API.repository;
 
 import com.tripmate.TRIPMATE_API.model.PostCategory;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public interface PostCategoryMapper {
 
     ArrayList<PostCategory> getCategories();
 
-//    void updateCategoryName(UpdateParameterDto categoryUpdateParameterDto);
+    void updateCategoryName(@Param("id") Integer id, PostCategory postCategory);
 
     void deleteCategory(Integer id);
 }

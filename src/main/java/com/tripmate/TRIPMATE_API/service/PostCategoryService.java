@@ -1,14 +1,15 @@
 package com.tripmate.TRIPMATE_API.service;
 
+import com.tripmate.TRIPMATE_API.model.PostCategory;
 import com.tripmate.TRIPMATE_API.model.PostCategoryDto;
 import java.util.List;
 
 public interface PostCategoryService {
-    void createCategory(PostCategoryDto newCategory);
+    void createCategory(PostCategory newCategory);
 
-    void updateCategoryName(String category_name, String values);
+    void updateCategoryName(Integer id, PostCategory postCategory);
 
-    List<PostCategoryDto> getCategories();
+    List<PostCategory> getCategories();
 
-    void deleteCategory(String category_name);
+    void deleteCategory(Integer id);
 }
