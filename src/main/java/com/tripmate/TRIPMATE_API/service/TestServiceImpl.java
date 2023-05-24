@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.User;
-import com.tripmate.TRIPMATE_API.repository.TestMapper;
+import com.tripmate.TRIPMATE_API.model.repository.TestMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

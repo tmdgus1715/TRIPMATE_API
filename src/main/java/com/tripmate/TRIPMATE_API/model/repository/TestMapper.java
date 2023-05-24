@@ -1,4 +1,4 @@
-package com.tripmate.TRIPMATE_API.repository;
+package com.tripmate.TRIPMATE_API.model.repository;
 
 import com.tripmate.TRIPMATE_API.model.User;
 import org.apache.ibatis.annotations.Mapper;
