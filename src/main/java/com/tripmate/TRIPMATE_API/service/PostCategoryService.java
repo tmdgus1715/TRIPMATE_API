@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.PostCategory;
-import com.tripmate.TRIPMATE_API.model.PostCategoryDto;
+
 import java.util.List;
 
 public interface PostCategoryService {

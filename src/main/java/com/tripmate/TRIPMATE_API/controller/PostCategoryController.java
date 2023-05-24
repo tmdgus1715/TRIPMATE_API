@@ -6,7 +6,6 @@ import com.tripmate.TRIPMATE_API.service.PostCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.tripmate.TRIPMATE_API.model.PostCategoryDto;
 
 import java.util.List;
 import java.net.URISyntaxException;

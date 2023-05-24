@@ -6,11 +6,11 @@ import org.w3c.dom.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostCategory {
+public class TouristAttractionCategory {
     private String name;
     private Integer id;
 
-    public PostCategory(Integer id, String name) {
+    public TouristAttractionCategory(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
