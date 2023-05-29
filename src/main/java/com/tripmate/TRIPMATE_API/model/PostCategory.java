@@ -1,7 +1,6 @@
 package com.tripmate.TRIPMATE_API.model;
 
 import lombok.*;
-import org.w3c.dom.Entity;
 
 @Data
 @AllArgsConstructor
