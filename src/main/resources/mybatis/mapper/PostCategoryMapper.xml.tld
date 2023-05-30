@@ -6,11 +6,11 @@
 <mapper namespace="com.tripmate.TRIPMATE_API.repository.PostCategoryMapper">
 
     <insert id="createCategory" parameterType="PostCategory">
-
+        insert into postCategories(id, name) values(#{id}, #{name});
     </insert>
 
     <update id="updateCategory" parameterType="PostCategory">
-
+        update postCategories(id, name) values(#{id}, #{name});
     </update>
 
     <select id="getCategory" parameterType="Integer" resultType="PostCategory">
@@ -20,6 +20,6 @@
     </select>
 
     <delete id="deleteCategory" parameterType="Integer">
-
+        delete postCategories(id, name) values(#{id}, #{name});
     </delete>
 </mapper>
