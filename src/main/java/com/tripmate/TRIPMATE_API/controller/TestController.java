@@ -1,11 +1,9 @@
 package com.tripmate.TRIPMATE_API.controller;
 
-import com.tripmate.TRIPMATE_API.model.User;
+import com.tripmate.TRIPMATE_API.model.domain.User;
 import com.tripmate.TRIPMATE_API.service.TestService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +13,20 @@ public class TestController {
     private final TestService testService;
 
     @GetMapping("/users")
-    void getAllUser() {
+    List<User> getAllUser() {
         List<User> allUser = testService.getAllUser();
         allUser.forEach(i -> System.out.println(i.toString()));
+        return allUser;
+    }
+
+    @GetMapping("/user/{id}")
+    void getUser(@PathVariable int id) {
+        User user = testService.getUser(id);
+        System.out.println(user.toString());
+    }
+
+    @PostMapping("/users/sign_in")
+    void register(@RequestBody User newUser) {
+        testService.createUser(newUser);
     }
 }

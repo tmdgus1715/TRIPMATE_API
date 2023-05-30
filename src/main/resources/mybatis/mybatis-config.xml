@@ -4,6 +4,7 @@
 <configuration>
     <mappers>
         <mapper resource="TestMapper.xml"/>
+        <mapper resource="TouristAttractionMapper.xml"/>
         <mapper resource="PostCategoryMapper.xml"/>
     </mappers>
 </configuration>
