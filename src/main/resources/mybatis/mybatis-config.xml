@@ -6,6 +6,5 @@
         <mapper resource="TestMapper.xml"/>
         <mapper resource="TouristAttractionMapper.xml"/>
         <mapper resource="PostCategoryMapper.xml"/>
-        <mapper resource="HashtagMapper.xml"/>
     </mappers>
 </configuration>
