@@ -1,6 +1,6 @@
 package com.tripmate.TRIPMATE_API.repository;
 
-import com.tripmate.TRIPMATE_API.model.domain.User;
+import com.tripmate.TRIPMATE_API.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +10,4 @@ import java.util.List;
 @Mapper
 public interface TestMapper {
     List<User> getAllUser();
-    User getUser(Integer id);
-    void createUser(User user);
 }

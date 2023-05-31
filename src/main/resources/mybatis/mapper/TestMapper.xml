@@ -9,11 +9,4 @@
         SELECT id, name FROM users;
     </select>
 
-    <select id="getUser" parameterType="Integer" resultType="User">
-            select id, name from users where id = #{id};
-    </select>
-
-    <insert id="createUser" parameterType="com.tripmate.TRIPMATE_API.model.domain.User">
-        insert into users(id, name) values(#{id}, #{name});
-    </insert>
 </mapper>

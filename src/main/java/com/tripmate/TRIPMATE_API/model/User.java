@@ -1,11 +1,10 @@
-package com.tripmate.TRIPMATE_API.model.domain;
+package com.tripmate.TRIPMATE_API.model;
 
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class User {
     int id;
     String name;
