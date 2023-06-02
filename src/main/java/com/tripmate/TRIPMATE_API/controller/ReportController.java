@@ -34,6 +34,6 @@ public class ReportController {
         // 운영자에게 신고사유를 확인하여 경고 횟수를 추가하는 로직 구현
         reportService.processReport(reason);
 
-        return ResponseEntity.ok("신고가 정상적으로 처리되었습니다.");
+        return ResponseEntity.ok("신고 처리 완료");
     }
 }

@@ -1,22 +1,12 @@
 package com.tripmate.TRIPMATE_API.model;
 
+import lombok.Data;
+
+@Data
 public class Report {
+    private int id;
+    private int user_id;
+    private int post_id;
     private String reason;
     private String additionalReason;
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public void setAdditionalReason(String additionalReason) {
-        this.additionalReason = additionalReason;
-    }
-
-    public String getAdditionalReason() {
-        return additionalReason;
-    }
 }
