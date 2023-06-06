@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tripmate.TRIPMATE_API.repository.PostCategoryMapper">
+
+    <insert id="createCategory" parameterType="PostCategory">
+        INSERT INTO post_categories(`id`, `name`)
+        VALUE(#{id}, #{name})
+    </insert>
+
+    <update id="updateCategory" parameterType="PostCategory">
+        UPDATE post_categories
+        SET name = #{postCategory.name}
+        WHERE id = #{id}
+    </update>
+
+    <select id="getCategories" parameterType="Integer" resultType="PostCategory">
+        select *
+        from post_categories
+        where id = #{id};
+    </select>
+
+    <delete id="deleteCategory" parameterType="Integer">
+        DELETE FROM post_categories
+        WHERE id = #{id}
+    </delete>
+
+</mapper>

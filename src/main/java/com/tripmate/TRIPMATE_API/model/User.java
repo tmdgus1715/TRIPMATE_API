@@ -1,4 +1,4 @@
-package com.tripmate.TRIPMATE_API.model.domain;
+package com.tripmate.TRIPMATE_API.model;
 
 import lombok.*;
 
@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class User {
     Integer id;
     String login_id;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tripmate.TRIPMATE_API.service.CheckValidationService">
+
+    <select id="isExistingUser" resultType="boolean" parameterType="Integer">
+        SELECT COUNT(*) > 0
+        FROM users
+        WHERE id = #{id};
+    </select>
+
+    <select id="isExistingPassword" resultType="boolean" parameterType="String">
+        SELECT COUNT(*) > 0
+        FROM users
+        WHERE password = #{password}
+    </select>
+
+    <select id="isExistingEmail" resultType="boolean" parameterType="String">
+        SELECT COUNT(*) > 0
+        FROM users
+        WHERE email = #{email}
+    </select>
+
+</mapper>
