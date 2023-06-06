@@ -1,7 +1,7 @@
-package com.tripmate.TRIPMATE_API.model.repository;
+package com.tripmate.TRIPMATE_API.repository;
 
-import com.tripmate.TRIPMATE_API.model.User;
-import com.tripmate.TRIPMATE_API.model.UpdateParameter;
+import com.tripmate.TRIPMATE_API.model.domain.User;
+import com.tripmate.TRIPMATE_API.model.domain.UpdateParameter;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

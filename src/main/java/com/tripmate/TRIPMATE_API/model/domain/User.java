@@ -1,4 +1,4 @@
-package com.tripmate.TRIPMATE_API.model;
+package com.tripmate.TRIPMATE_API.model.domain;
 
 import lombok.*;
 
