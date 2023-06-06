@@ -22,7 +22,7 @@ public class PostCategoryController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/{id}") // 카테고리에 게시물 추가하기
+    @PatchMapping("/{id}") // 카테고리 업데이트하기
     public ResponseEntity<Object> updateCategory(@PathVariable Integer id, @RequestBody PostCategory postCategory) {
         postCategoryService.updateCategoryName(id, postCategory);
         return ResponseEntity.ok().build();
@@ -31,7 +31,7 @@ public class PostCategoryController {
     @GetMapping("/list") // 카테고리 보여주기
     public ResponseEntity<List<PostCategory>> getCategories() {
         List<PostCategory> postCategories = postCategoryService.getCategories();
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(postCategories);
     }
 
     @DeleteMapping("/{id}") // 카테고리 지우기

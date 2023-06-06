@@ -1,8 +1,8 @@
 package com.tripmate.TRIPMATE_API.controller;
 
 
-import com.tripmate.TRIPMATE_API.model.TouristAttractionCategory;
-import com.tripmate.TRIPMATE_API.service.TouristAttractionCategoryService;
+import com.tripmate.TRIPMATE_API.model.TravelCategory;
+import com.tripmate.TRIPMATE_API.service.TravelCategoryService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.net.URISyntaxException;
 @RestController
-@RequestMapping("/tourist_attraction_categories")
+@RequestMapping("/travel_categories")
 @RequiredArgsConstructor
-public class TouristAttractionCategoryController {
-    private final TouristAttractionCategoryService touristAttractionCategoryService;
+public class TravelCategoryController {
+    private final TravelCategoryService touristAttractionCategoryService;
 
     @PostMapping // 카테고리 새로 만들기
-    public ResponseEntity<Object> createCategory(@RequestBody TouristAttractionCategory newCategory) throws URISyntaxException {
+    public ResponseEntity<Object> createCategory(@RequestBody TravelCategory newCategory) throws URISyntaxException {
         touristAttractionCategoryService.createCategory(newCategory);
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/{id}") // 카테고리에 게시물 추가하기
-    public ResponseEntity<Object> updateCategory(@PathVariable Integer id, @RequestBody TouristAttractionCategory postCategory) {
+    @PatchMapping("/{id}") // 카테고리 업데이트하기
+    public ResponseEntity<Object> updateCategory(@PathVariable Integer id, @RequestBody TravelCategory postCategory) {
         touristAttractionCategoryService.updateCategoryName(id, postCategory);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/list") // 카테고리 보여주기
-    public ResponseEntity<List<TouristAttractionCategory>> getCategories() {
-        List<TouristAttractionCategory> postCategories = touristAttractionCategoryService.getCategories();
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<TravelCategory>> getCategories() {
+        List<TravelCategory> touristAttractionCategories = touristAttractionCategoryService.getCategories();
+        return ResponseEntity.ok(touristAttractionCategories);
     }
 
     @DeleteMapping("/{id}") // 카테고리 지우기

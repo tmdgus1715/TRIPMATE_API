@@ -6,14 +6,13 @@
 <mapper namespace="com.tripmate.TRIPMATE_API.repository.ReportMapper">
 
     <insert id="insertReport">
-        INSERT INTO reports (id, user_id, post_id, reason)
-        VALUES (#{id}, #{user_id}, #{post_id}, #{reason});
+        INSERT INTO reports (user_id, post_id, reason)
+        VALUES (#{user_id}, #{post_id}, #{reason});
     </insert>
 
-    <select id="getReport" parameterType="Integer" resultType="Report">
+    <select id="getReports" resultType="Report">
         select *
-        from reports
-        where id = #{id};
+        from reports;
     </select>
 
 </mapper>

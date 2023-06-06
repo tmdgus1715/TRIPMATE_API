@@ -14,13 +14,13 @@
     <select id="isExistingPassword" resultType="boolean" parameterType="String">
         SELECT COUNT(*) > 0
         FROM users
-        WHERE password = #{password}
+        WHERE password = #{password};
     </select>
 
     <select id="isExistingEmail" resultType="boolean" parameterType="String">
         SELECT COUNT(*) > 0
         FROM users
-        WHERE email = #{email}
+        WHERE email = #{email};
     </select>
 
 </mapper>
