@@ -1,8 +1,8 @@
 package com.tripmate.TRIPMATE_API.controller;
 
-import com.tripmate.TRIPMATE_API.model.User;
-import com.tripmate.TRIPMATE_API.model.LoginUserRequest;
-import com.tripmate.TRIPMATE_API.model.UpdateUserRequest;
+import com.tripmate.TRIPMATE_API.model.domain.User;
+import com.tripmate.TRIPMATE_API.model.domain.LoginUserRequest;
+import com.tripmate.TRIPMATE_API.model.domain.UpdateUserRequest;
 import com.tripmate.TRIPMATE_API.service.UserService;
 import com.tripmate.TRIPMATE_API.service.JwtService;
 import lombok.AllArgsConstructor;

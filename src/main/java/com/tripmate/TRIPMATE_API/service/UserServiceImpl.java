@@ -1,9 +1,9 @@
 package com.tripmate.TRIPMATE_API.service;
 
-import com.tripmate.TRIPMATE_API.model.User;
-import com.tripmate.TRIPMATE_API.model.LoginUserRequest;
-import com.tripmate.TRIPMATE_API.model.UpdateParameter;
-import com.tripmate.TRIPMATE_API.model.repository.UserMapper;
+import com.tripmate.TRIPMATE_API.model.domain.User;
+import com.tripmate.TRIPMATE_API.model.domain.LoginUserRequest;
+import com.tripmate.TRIPMATE_API.model.domain.UpdateParameter;
+import com.tripmate.TRIPMATE_API.repository.UserMapper;
 import com.tripmate.TRIPMATE_API.util.Encryption;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

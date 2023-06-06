@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
-import com.tripmate.TRIPMATE_API.model.User;
-import com.tripmate.TRIPMATE_API.model.LoginUserRequest;
+import com.tripmate.TRIPMATE_API.model.domain.User;
+import com.tripmate.TRIPMATE_API.model.domain.LoginUserRequest;
 
 public interface UserService {
     void create(User user);

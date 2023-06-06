@@ -1,6 +1,6 @@
 package com.tripmate.TRIPMATE_API.repository;
 
-import com.tripmate.TRIPMATE_API.model.PostCategory;
+import com.tripmate.TRIPMATE_API.model.domain.PostCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

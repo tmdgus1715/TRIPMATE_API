@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.repository;
 
 import org.apache.ibatis.annotations.Mapper;
-import com.tripmate.TRIPMATE_API.model.Report;
+import com.tripmate.TRIPMATE_API.model.domain.Report;
 
 import java.util.List;
 

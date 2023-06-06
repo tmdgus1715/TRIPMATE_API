@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.repository;
 
 import com.tripmate.TRIPMATE_API.model.domain.Post;
-import com.tripmate.TRIPMATE_API.model.dto.PostRequest;
+import com.tripmate.TRIPMATE_API.model.domain.PostRequest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.controller;
 
 
-import com.tripmate.TRIPMATE_API.model.TravelCategory;
+import com.tripmate.TRIPMATE_API.model.domain.TravelCategory;
 import com.tripmate.TRIPMATE_API.service.TravelCategoryService;
 
 import lombok.RequiredArgsConstructor;

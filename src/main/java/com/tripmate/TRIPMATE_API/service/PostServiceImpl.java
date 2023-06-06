@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.domain.Post;
-import com.tripmate.TRIPMATE_API.model.dto.PostRequest;
+import com.tripmate.TRIPMATE_API.model.domain.PostRequest;
 import com.tripmate.TRIPMATE_API.repository.PostMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

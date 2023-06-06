@@ -1,6 +1,6 @@
 package com.tripmate.TRIPMATE_API.service;
 
-import com.tripmate.TRIPMATE_API.model.PostCategory;
+import com.tripmate.TRIPMATE_API.model.domain.PostCategory;
 
 import java.util.List;
 

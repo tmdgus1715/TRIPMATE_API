@@ -1,6 +1,6 @@
 package com.tripmate.TRIPMATE_API.controller;
 
-import com.tripmate.TRIPMATE_API.model.Report;
+import com.tripmate.TRIPMATE_API.model.domain.Report;
 import com.tripmate.TRIPMATE_API.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.domain.Post;
-import com.tripmate.TRIPMATE_API.model.dto.PostRequest;
+import com.tripmate.TRIPMATE_API.model.domain.PostRequest;
 
 import java.util.List;
 

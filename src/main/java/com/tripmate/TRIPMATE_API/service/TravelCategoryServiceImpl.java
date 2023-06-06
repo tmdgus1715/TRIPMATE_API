@@ -1,6 +1,6 @@
 package com.tripmate.TRIPMATE_API.service;
 
-import com.tripmate.TRIPMATE_API.model.TravelCategory;
+import com.tripmate.TRIPMATE_API.model.domain.TravelCategory;
 import com.tripmate.TRIPMATE_API.repository.TravelCategoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
