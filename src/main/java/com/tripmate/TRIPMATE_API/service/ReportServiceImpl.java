@@ -2,39 +2,27 @@ package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.Report;
 import com.tripmate.TRIPMATE_API.repository.ReportMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class ReportServiceImpl implements ReportService {
 
     private final ReportMapper reportMapper;
 
-    public ReportServiceImpl(ReportMapper reportMapper) {
-        this.reportMapper = reportMapper;
-    }
-
     @Override
-    public void submitReport(String reason) {
-        Report report = new Report();
-        report.setReason(reason);
+    public void submitReport(Report report) {
         reportMapper.insertReport(report);
     }
 
     @Override
-    public List<Report> getReport(Integer id) {
-        List<Report> list = reportMapper.getReport(id);
+    public List<Report> getReports() {
+        List<Report> list = reportMapper.getReports();
         return list;
     }
-
-//    @Override
-//    public void saveAdditionalReason(String additionalReason) {
-//        Report report = new Report();
-//        report.setReason("기타");
-//        report.setAdditionalReason(additionalReason);
-//        reportMapper.insertReport(report);
-//    }
-
-
 }

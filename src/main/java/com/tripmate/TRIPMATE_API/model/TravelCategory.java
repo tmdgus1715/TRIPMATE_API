@@ -6,11 +6,11 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TouristAttractionCategory {
+public class TravelCategory {
     private String name;
     private Integer id;
 
-    public TouristAttractionCategory(Integer id, String name) {
+    public TravelCategory(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
