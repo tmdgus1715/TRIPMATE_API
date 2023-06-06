@@ -13,30 +13,46 @@ import java.util.List;
 @Transactional
 public class TouristAttractionServiceImpl implements TouristAttractionService {
 
-    TouristAttractionMapper touristAttractionMapper;
+    private final TouristAttractionMapper touristAttractionMapper;
 
     @Override
     public void createTouristAttraction(TouristAttraction newTouristAttraction) {
         touristAttractionMapper.createTouristAttraction(newTouristAttraction);
+        Integer newTouristAttractionId = touristAttractionMapper.getTouristAttractionByName(newTouristAttraction.getName());
+        touristAttractionMapper.createTouristAttractionImages(newTouristAttractionId, newTouristAttraction.getImages());
+        touristAttractionMapper.createTouristAttractionTravelCategories(newTouristAttractionId, newTouristAttraction.getTravel_categories());
     }
 
     @Override
     public TouristAttraction getTouristAttraction(Integer id) {
-        return touristAttractionMapper.getTouristAttraction(id);
+        TouristAttraction touristAttraction = touristAttractionMapper.getTouristAttraction(id);
+        setReferenceField(touristAttraction);
+        return touristAttraction;
+    }
+
+    private void setReferenceField(TouristAttraction touristAttraction) {
+        touristAttraction.setImages(touristAttractionMapper.getTouristAttractionImages(touristAttraction.getId()));
+        touristAttraction.setTravel_categories(touristAttractionMapper.getTravelCategories(touristAttraction.getId()));
     }
 
     @Override
     public List<TouristAttraction> getTouristAttractions() {
-        return touristAttractionMapper.getTouristAttractions();
+        List<TouristAttraction> touristAttractions = touristAttractionMapper.getTouristAttractions();
+        touristAttractions.forEach(element -> setReferenceField(element));
+        return touristAttractions;
     }
 
     @Override
     public List<TouristAttraction> getTouristAttracionsOfTravelCategory(List<Integer> travelCategories) {
-        return touristAttractionMapper.getTouristAttractionsOfTravelCategory(travelCategories);
+        List<TouristAttraction> touristAttractions = touristAttractionMapper.getTouristAttractionsOfTravelCategory(travelCategories);
+        touristAttractions.forEach(element -> setReferenceField(element));
+        return touristAttractions;
     }
 
     @Override
     public void updateTouristAttraction(Integer id, TouristAttraction touristAttraction) {
+        TouristAttraction existed = touristAttractionMapper.getTouristAttraction(id);
+        touristAttraction.setForDB(existed);
         touristAttractionMapper.updateTouristAttraction(id, touristAttraction);
     }
 

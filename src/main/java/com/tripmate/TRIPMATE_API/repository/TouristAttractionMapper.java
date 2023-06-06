@@ -17,8 +17,17 @@ public interface TouristAttractionMapper {
 
     List<TouristAttraction> getTouristAttractionsOfTravelCategory(List<Integer> travelCategories);
 
-    void updateTouristAttraction(Integer id, @Param("touristAttraction") TouristAttraction touristAttraction);
+    void updateTouristAttraction(@Param("targetId") Integer targetId, @Param("tour") TouristAttraction touristAttraction);
 
     void deleteTouristAttraction(Integer id);
 
+    Integer getTouristAttractionByName(String name);
+
+    void createTouristAttractionImages(Integer id, @Param("images") List<String> images);
+
+    void createTouristAttractionTravelCategories(Integer id, @Param("categories") List<Integer> travelCategories);
+
+    List<String> getTouristAttractionImages(Integer id);
+
+    List<Integer> getTravelCategories(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.tripmate.TRIPMATE_API.service;
 
 import com.tripmate.TRIPMATE_API.model.domain.TouristAttraction;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface TouristAttractionService {
 
     List<TouristAttraction> getTouristAttracionsOfTravelCategory(List<Integer> travelCategories);
 
-    void updateTouristAttraction(Integer id, TouristAttraction touristAttraction);
+    void updateTouristAttraction(Integer id, @Param("tour") TouristAttraction touristAttraction);
 
     void deleteTouristAttraction(Integer id);
 }

@@ -5,33 +5,80 @@
 
 <mapper namespace="com.tripmate.TRIPMATE_API.repository.TouristAttractionMapper">
 
-    <insert id="createUser" parameterType="domain.TouristAttraction">
-        insert into users(id, name) values(#{id}, #{name});
+    <insert id="createTouristAttraction" parameterType="TouristAttraction">
+        insert into tourist_attractions(state, city, address, name, intro, customer_service_center, open_time, close_time, day_off, fee, url)
+        value(#{state}, #{city}, #{address}, #{name}, #{intro}, #{customer_service_center}, #{open_time}, #{close_time},
+               #{day_off}, #{fee}, #{url});
     </insert>
 
-    <select id="getTravelAttraction" parameterType="Integer" resultType="domain.TouristAttraction">
+    <select id="getTouristAttraction" parameterType="Integer" resultType="TouristAttraction">
         select * from `tourist_attractions` where `id` = #{id};
     </select>
 
-    <select id="getTravelAttractions" resultType="domain.TouristAttraction">
-        SELECT * FROM some_table WHERE id IN
-        <foreach collection="ids" item="id" open="(" close=")" separator=",">
-            #{id}
-        </foreach>
+    <select id="getTouristAttractions" resultType="TouristAttraction">
+        SELECT * FROM tourist_attractions;
     </select>
 
-    <select id="getTravelAttractionsOfTravelCategory" parameterType="java.util.ArrayList" resultType="domain.TouristAttraction">
-        SELECT * FROM some_table WHERE id IN
-        <foreach collection="ids" item="id" open="(" close=")" separator=",">
-            #{id}
-        </foreach>
+    <select id="getTouristAttractionsOfTravelCategory" parameterType="java.util.ArrayList" resultType="TouristAttraction">
+        select * from tourist_attractions where id In
+        (select distinct tourist_attraction_id from tourist_attractions_travel_categories where
+        travel_category_id In
+        <foreach collection="travelCategories" item="id" open="(" close=")" separator=",">
+        #{id}
+    </foreach>);
     </select>
 
-    <delete id="deleteTravelAttraction" parameterType="Integer">
-
+    <delete id="deleteTouristAttraction" parameterType="Integer">
+        delete from `tourist_attractions` where id = #{id};
     </delete>
 
-    <update id="updateTravelAttraction" parameterType="Integer">
+    <update id="updateTouristAttraction">
+        update tourist_attractions set
+                                       `state` = #{tour.state},
+                                       `city` = #{tour.city},
+                                       `address` = #{tour.address},
+                                       `name` = #{tour.name},
+                                       `intro` = #{tour.intro},
+                                       `customer_service_center` = #{tour.customer_service_center},
+                                       `open_time` = #{tour.open_time},
+                                       `close_time` = #{tour.close_time},
+                                       `day_off` = #{tour.day_off},
+                                       `url` =  #{tour.url},
+                                       `fee` = #{tour.fee},
+                                       `updated_at` = now() where `id` = #{targetId};
+
         /*mybatis에서는 mapper의 인자에 @Param을 명시해주면 parameterType을 명시할 필요가 없다.*/
     </update>
+
+    <select id="getTouristAttractionByName" parameterType="String" resultType="Integer">
+        select id from tourist_attractions where name = #{name};
+    </select>
+
+    <insert id="createTouristAttractionImages" parameterType="Integer">
+        insert into tourist_attractions_images(tourist_attractions_id, image_url)
+        values
+            <foreach collection="images" item="image" open="" close=";" separator=",">
+                (#{id}, #{image})
+            </foreach>
+    </insert>
+
+    <insert id="createTouristAttractionTravelCategories" parameterType="Integer">
+        insert into tourist_attractions_travel_categories(tourist_attraction_id, travel_category_id)
+        values
+        <foreach collection="categories" item="category" open="" close=";" separator=",">
+            (#{id}, #{category})
+        </foreach>
+    </insert>
+
+    <select id="getTouristAttractionImages" parameterType="Integer" resultType="String">
+        select `image_url` from tourist_attractions_images where `tourist_attractions_id` = #{id};
+    </select>
+
+    <select id="getTravelCategories" parameterType="Integer" resultType="Integer">
+        select distinct a.`id`
+        from travel_categories as a
+        inner join tourist_attractions_travel_categories as b
+        on a.`id` = b.`travel_category_id`
+        where b.`tourist_attraction_id` = #{id};
+    </select>
 </mapper>
