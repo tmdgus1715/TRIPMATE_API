@@ -6,20 +6,25 @@
 <mapper namespace="com.tripmate.TRIPMATE_API.repository.PostCategoryMapper">
 
     <insert id="createCategory" parameterType="PostCategory">
-
+        INSERT INTO post_categories(`id`, `name`)
+        VALUE(#{id}, #{name})
     </insert>
 
     <update id="updateCategory" parameterType="PostCategory">
-
+        UPDATE post_categories
+        SET name = #{postCategory.name}
+        WHERE id = #{id}
     </update>
 
-    <select id="getCategory" parameterType="Integer" resultType="PostCategory">
+    <select id="getCategories" parameterType="Integer" resultType="PostCategory">
         select *
         from post_categories
         where id = #{id};
     </select>
 
     <delete id="deleteCategory" parameterType="Integer">
-
+        DELETE FROM post_categories
+        WHERE id = #{id}
     </delete>
+
 </mapper>

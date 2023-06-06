@@ -3,8 +3,6 @@ package com.tripmate.TRIPMATE_API.controller;
 
 import com.tripmate.TRIPMATE_API.model.PostCategory;
 import com.tripmate.TRIPMATE_API.service.PostCategoryService;
-import com.tripmate.TRIPMATE_API.model.TouristAttractionCategory;
-import com.tripmate.TRIPMATE_API.service.TouristAttractionCategoryService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

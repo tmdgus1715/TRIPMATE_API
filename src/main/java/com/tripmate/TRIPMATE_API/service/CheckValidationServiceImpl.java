@@ -1,5 +1,6 @@
 package com.tripmate.TRIPMATE_API.service;
 
+import com.tripmate.TRIPMATE_API.repository.CheckValidationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class CheckValidationServiceImpl implements CheckValidationService {
 
+    private final CheckValidationMapper checkValidationMapper;
     @Override
     public boolean isContentLengthValid(String content) {
         int contentLength = content.length();
@@ -22,23 +24,23 @@ public class CheckValidationServiceImpl implements CheckValidationService {
     }
 
     @Override
-    public boolean isExistingUser(String userId) {
-        // 이미 존재하는 아이디인지 검사하는 로직 구현
-        // 예: 데이터베이스 조회 등
+    public boolean isExistingUser(Integer id) {
+        // 이미 존재하는 아이디인지 검사
+        checkValidationMapper.isExistingUser(id);
         return true; // 존재한다면 true 반환, 아니라면 false 반환
     }
 
     @Override
     public boolean isExistingPassword(String password) {
-        // 이미 존재하는 비밀번호인지 검사하는 로직 구현
-        // 예: 데이터베이스 조회 등
+        // 이미 존재하는 비밀번호인지 검사
+        checkValidationMapper.isExistingPassword(password);
         return true; // 존재한다면 true 반환, 아니라면 false 반환
     }
 
     @Override
     public boolean isExistingEmail(String email) {
         // 이미 존재하는 이메일인지 검사하는 로직 구현
-        // 예: 데이터베이스 조회 등
+        checkValidationMapper.isExistingEmail(email);
         return true; // 존재한다면 true 반환, 아니라면 false 반환
     }
 

@@ -5,7 +5,7 @@ public interface CheckValidationService {
 
     boolean isTitleLengthValid(String title);
 
-    boolean isExistingUser(String userId);
+    boolean isExistingUser(Integer id);
 
     boolean isExistingPassword(String password);
 

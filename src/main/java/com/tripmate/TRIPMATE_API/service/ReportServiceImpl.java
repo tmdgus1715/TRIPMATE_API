@@ -4,6 +4,8 @@ import com.tripmate.TRIPMATE_API.model.Report;
 import com.tripmate.TRIPMATE_API.repository.ReportMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReportServiceImpl implements ReportService {
 
@@ -17,21 +19,22 @@ public class ReportServiceImpl implements ReportService {
     public void submitReport(String reason) {
         Report report = new Report();
         report.setReason(reason);
-        // 데이터베이스에 저장
         reportMapper.insertReport(report);
     }
 
     @Override
-    public void saveAdditionalReason(String additionalReason) {
-        Report report = new Report();
-        report.setReason("기타");
-        report.setAdditionalReason(additionalReason);
-        // 데이터베이스에 저장
-        reportMapper.insertReport(report);
+    public List<Report> getReport(Integer id) {
+        List<Report> list = reportMapper.getReport(id);
+        return list;
     }
 
-    @Override
-    public void processReport(String reason) {
-        // 운영자에게 신고사유를 확인하여 경고 횟수를 추가하는 로직 구현
-    }
+//    @Override
+//    public void saveAdditionalReason(String additionalReason) {
+//        Report report = new Report();
+//        report.setReason("기타");
+//        report.setAdditionalReason(additionalReason);
+//        reportMapper.insertReport(report);
+//    }
+
+
 }

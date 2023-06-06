@@ -5,5 +5,8 @@
     <mappers>
         <mapper resource="TestMapper.xml"/>
         <mapper resource="PostCategoryMapper.xml"/>
+        <mapper resource="ReportMapper.xml"/>
+        <mapper resource="TouristAttractionCategoryMapper.xml"/>
+        <mapper resource="CheckValidationMapper.xml"/>
     </mappers>
 </configuration>
