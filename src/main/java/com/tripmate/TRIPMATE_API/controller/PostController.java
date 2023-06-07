@@ -53,14 +53,14 @@ public class PostController {
     }
 
     @GetMapping("/post/user/{userId}")//유저의 게시물 목록 조회
-    public ResponseEntity<List<Post>> getUserPosts(@PathVariable Integer userId) {
-        List<Post> posts = postService.getPostsByUserId(userId);
+    public ResponseEntity<List<Post>> getUserPosts(@PathVariable Integer userId, @RequestBody PostRequest postRequest) {
+        List<Post> posts = postService.getPostsByUserId(userId, postRequest);
         return ResponseEntity.ok(posts);
     }
 
     @GetMapping("/post/category/{categoryId}")//카테고리별 게시물 목록 조회
-    public ResponseEntity<List<Post>> getPosts(@PathVariable Integer categoryId) {
-        List<Post> posts = postService.getPostsByCategory(categoryId);
+    public ResponseEntity<List<Post>> getPosts(@PathVariable Integer categoryId, @RequestBody PostRequest postRequest) {
+        List<Post> posts = postService.getPostsByCategory(categoryId, postRequest);
         return ResponseEntity.ok(posts);
     }
 
@@ -71,14 +71,14 @@ public class PostController {
     }
 
     @GetMapping("/post/hashtag")//해시 태그별로 목록 조회
-    public ResponseEntity<List<Post>> getPosts(@RequestBody List<Integer> postHashTagRequest) {
-        List<Post> posts = postService.getPostsByHashtag(postHashTagRequest);
+    public ResponseEntity<List<Post>> getPosts(@RequestBody List<Integer> postHashTagRequest, @RequestBody PostRequest postRequest) {
+        List<Post> posts = postService.getPostsByHashtag(postHashTagRequest, postRequest);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/post/tavel-attraction/{tavelAttractionId}")//여행지별로 조회
-    public ResponseEntity<List<Post>> getTravelAttractionPosts(@PathVariable Integer travelAttractionId) {
-        List<Post> posts = postService.getPostsByTravelAttractionPosts(travelAttractionId);
+    public ResponseEntity<List<Post>> getTravelAttractionPosts(@PathVariable Integer travelAttractionId, @RequestBody PostRequest postRequest) {
+        List<Post> posts = postService.getPostsByTravelAttractionPosts(travelAttractionId, postRequest);
         return ResponseEntity.ok().build();
     }
 }

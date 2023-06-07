@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
     private final PostMapper postMapper;
-
+//이미지 media에 넣는 것, post_hashtag에 삽입.
     @Override
     public void writePost(Post newPost) {
         Integer id = getUserId();
@@ -26,7 +26,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void updatePost(Integer id, Post post) {
-        postMapper.updatePost(post);
+        Post exist = postMapper.getPost(id);
+        post.setForDB(exist);
+        postMapper.updatePost(id, post);
     }
 
     @Override
@@ -45,12 +47,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getPostsByUserId(Integer userId) {
+    public List<Post> getPostsByUserId(Integer userId, PostRequest postRequest) {
         return postMapper.getPostsByUserId(userId);
     }
 
     @Override
-    public List<Post> getPostsByCategory(Integer categoryId) {
+    public List<Post> getPostsByCategory(Integer categoryId, PostRequest postRequest) {
         return postMapper.getPostsByCategory(categoryId);
     }
 
@@ -60,7 +62,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getPostsByHashtag(List<Integer> postHashTagRequest) {
+    public List<Post> getPostsByHashtag(List<Integer> postHashTagRequest, PostRequest postRequest) {
         return postMapper.getPostByHashtag(postHashTagRequest);
       /*  <select id="getUsersByIds" parameterType="java.util.List" resultType="User">
                 SELECT * FROM users
@@ -72,7 +74,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getPostsByTravelAttractionPosts(Integer travelAttractionId) {
+    public List<Post> getPostsByTravelAttractionPosts(Integer travelAttractionId, PostRequest postRequest) {
         return postMapper.getPostsByTravelAttractionPosts(travelAttractionId);
     }
 

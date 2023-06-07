@@ -1,6 +1,6 @@
-package com.tripmate.TRIPMATE_API.model.repository;
+package com.tripmate.TRIPMATE_API.repository;
 
-import com.tripmate.TRIPMATE_API.model.Hashtag;
+import com.tripmate.TRIPMATE_API.model.domain.Hashtag;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

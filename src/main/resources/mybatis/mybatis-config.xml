@@ -8,5 +8,8 @@
         <mapper resource="ReportMapper.xml"/>
         <mapper resource="TouristAttractionCategoryMapper.xml"/>
         <mapper resource="CheckValidationMapper.xml"/>
+        <mapper resource="UserMapper.xml"/>
+        <mapper resource="HashtagMapper.xml"/>
+        <mapper resource="TouristAttractionMapper.xml"/>
     </mappers>
 </configuration>

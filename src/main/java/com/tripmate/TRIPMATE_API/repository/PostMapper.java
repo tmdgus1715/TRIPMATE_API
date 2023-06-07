@@ -14,7 +14,7 @@ public interface PostMapper {
 
     void writePost(Post newPost, @Param("user") Integer id);
 
-    void updatePost(Post post);
+    void updatePost(Integer postId, @Param("post") Post post);
 
     void deletePost(Integer postId);
 
@@ -28,8 +28,7 @@ public interface PostMapper {
 
     List<Post> getPosts(PostRequest postRequest);
 
-    List<Post> getPostByHashtag(List<Integer> postHashTagRequest);
+    List<Post> getPostByHashtag(@Param("hashtags")List<Integer> postHashTagRequest);
 
     List<Post> getPostsByTravelAttractionPosts(Integer travelAttractionId);
-
 }

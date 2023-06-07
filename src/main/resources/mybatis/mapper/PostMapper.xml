@@ -7,18 +7,55 @@
     <insert id="writePost" parameterType="Post">
         insert into posts(posted_at, content, title, category_id, user_id, tourist_attraction_id)
         value(
-            posted_at = now(),
-            content = #{content},
-            title = #{title},
-            category_id = #{category_id},
-            user_id = #{user},
-            tourist_attraction_id = #{tourist_attraction_id};
+            `posted_at` = now(),
+            `content` = #{content},
+            `title` = #{title},
+            `category_id` = #{category_id},
+            `user_id` = #{user},
+            `tourist_attraction_id` = #{tourist_attraction_id};
         )
     </insert>
 
-    <insert id="updatePost" parameterType="Post">
+    <update id="updatePost" parameterType="Post">
         update posts set
+                         type = #{post.type},
+                         updated_at = now(),
+                         content = #{post.content},
+                         title = #{post.title}
+        where id = #{postId};
+    </update>
 
-    </insert>
+    <update id="deletePost" parameterType="Integer">
+        update posts set
+                          deleted_at = now(),
+                          is_valid = 1
+        where id = #{postId};
+    </update>
+
+    <update id="likePost" parameterType="Integer">
+        update posts set
+                         like_count = like_count + 1
+        where id = #{postId};
+    </update>
+
+    <select id="getPost" parameterType="Integer" resultType="Post">
+        select * from posts where id = #{postId} AND is_valid != 1;
+    </select>
+
+    <select id="getPostsByUserId" parameterType="Integer" resultType="Post">
+        select * from posts where user_id = #{userId} AND is_valid != 1;
+    </select>
+
+    <select id="getPostsByCategory" parameterType="Integer" resultType="Post">
+        select * from posts where category_id = #{categoryId} AND is_valid != 1;
+    </select>
+
+    <select id="getPosts" resultType="Post">
+        select * from posts where is_valid != 1;
+    </select>
+
+    <select id="getPostsByHashtag" resultType="Post">
+        select * from posts where is_valid != 1;
+    </select>
 
 </mapper>

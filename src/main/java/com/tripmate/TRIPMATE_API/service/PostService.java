@@ -16,14 +16,14 @@ public interface PostService {
 
     Post getPost(Integer postId);
 
-    List<Post> getPostsByUserId(Integer userId);
+    List<Post> getPostsByUserId(Integer userId, PostRequest postRequest);
 
-    List<Post> getPostsByCategory(Integer categoryId);
+    List<Post> getPostsByCategory(Integer categoryId, PostRequest postRequest);
 
     List<Post> getPosts(PostRequest postRequest);
 
-    List<Post> getPostsByHashtag(List<Integer> postHashTagRequest);
+    List<Post> getPostsByHashtag(List<Integer> postHashTagRequest, PostRequest postRequest);
 
-    List<Post> getPostsByTravelAttractionPosts(Integer travelAttractionId);
+    List<Post> getPostsByTravelAttractionPosts(Integer travelAttractionId, PostRequest postRequest);
 
 }
