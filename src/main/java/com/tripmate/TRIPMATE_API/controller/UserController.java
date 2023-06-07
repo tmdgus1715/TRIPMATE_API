@@ -31,15 +31,15 @@ public class UserController {
     }
 
     @DeleteMapping
-    ResponseEntity<Object> deleteUser(String jwtToken, String password) throws Exception
+    ResponseEntity<Object> deleteUser(@RequestBody String jwtToken) throws Exception
     {
         Integer userId = jwtService.getUserId(jwtToken);
-        userService.delete(userId, password);
+        userService.delete(userId);
         return ResponseEntity.ok().build();
     }
 
     @PatchMapping
-    ResponseEntity<Object> updateUser(String jwtToken, @RequestBody UpdateUserRequest updateUserRequest) throws Exception
+    ResponseEntity<Object> updateUser(@RequestBody String jwtToken, @RequestBody UpdateUserRequest updateUserRequest) throws Exception
     {
         Integer userId = jwtService.getUserId(jwtToken);
         switch (updateUserRequest.getKey())

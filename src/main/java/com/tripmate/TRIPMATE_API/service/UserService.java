@@ -19,7 +19,7 @@ public interface UserService {
     void updateGender(Integer userId, Integer Gender);
     void updateBirth(Integer userId, java.sql.Timestamp newBirth);
 
-    void delete(Integer userId, String password);
+    void delete(Integer userId);
 
     String login(LoginUserRequest loginUserRequest);
 }

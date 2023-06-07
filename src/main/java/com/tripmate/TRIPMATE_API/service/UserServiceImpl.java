@@ -142,12 +142,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void delete(Integer userId, String password) {
+    public void delete(Integer userId) {
         User user = userMapper.getUser(userId);
         user.checkValidation();
-
-        encryption.checkPassword(password, user.getPassword());
-
         userMapper.delete(user.getId());
 
         //postMapper.withdrawAllPost(user.getId());

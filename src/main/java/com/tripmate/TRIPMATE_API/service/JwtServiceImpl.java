@@ -30,6 +30,7 @@ public class JwtServiceImpl implements JwtService{
 
     public Integer getUserId(String token) throws Exception {
         Claims claims = null;
+        System.out.println(token);
         try {
             claims = Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody();
         } catch (Exception e) {
